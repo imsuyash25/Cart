@@ -1,14 +1,11 @@
 import * as React from "react";
-
-
-
+import './index.css';
 function App(){
   
   return (
     <div className="App">
-    <h1>hello world</h1>
-    <div className="flex">
-      <strong>Hello world</strong>
+    <div className="body">
+      <h1>Hello world</h1>
       </div>
     </div>
   );
