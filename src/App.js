@@ -1,12 +1,11 @@
 import * as React from "react";
 import './index.css';
+import CartItem from './CartItem';
 function App(){
   
   return (
     <div className="App">
-    <div className="body">
-      <h1>Hello world</h1>
-      </div>
+    <CartItem />
     </div>
   );
 }
