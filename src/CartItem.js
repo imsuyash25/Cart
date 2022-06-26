@@ -27,7 +27,23 @@ class CartItem extends React.Component{
                     qty : prevState.qty + 1
                 }
             });
-    } 
+    }
+    decreaseQty(){
+        const {qty} = this.state;   //destructuring
+        if (qty === 1  ){
+            return window.alert("item cant be zero")
+         }
+        //this.state.qty -= 1
+        
+        //this is asynchronous becoz we dont know when log wali command update hogi isiliye second parameter me callback func use krte h
+        this.setState((prevState)=>{
+                return{
+                    qty: prevState.qty - 1
+                }
+        },()=>{
+            console.log('this.decrese', this.state)
+        });
+    }
     render(){
         const { price, title, qty}= this.state;
         return (
@@ -50,7 +66,8 @@ class CartItem extends React.Component{
                         <img alt="decrease"
                          className="action-icons"
                           src="https://cdn-icons-png.flaticon.com/128/992/992683.png"
-                           />
+                        onClick = {this.decreaseQty.bind(this)}   
+                        />
 
                         <img alt="delete"
                          className="action-icons"
