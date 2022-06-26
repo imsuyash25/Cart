@@ -12,8 +12,22 @@ class CartItem extends React.Component{
         }
     }
     increaseQty =()=>{
+        //this.state.qty += 1;react do not know is state updating 
+        //thats why we need tell react by setState()
+        
         console.log('this.state',  this.state)
-    }
+        //setState form 1
+        //this.setState({
+          // title : "Samsung Galaxy"
+        //});
+        //form 2
+        this.setState(
+            (prevState)=> {
+                return{
+                    qty : prevState.qty + 1
+                }
+            });
+    } 
     render(){
         const { price, title, qty}= this.state;
         return (
