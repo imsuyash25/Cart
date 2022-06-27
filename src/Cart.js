@@ -53,7 +53,7 @@ class Cart extends React.Component{
         
         const {products} = this.state;
         const items = products.filter((item)=> item.id !== id); // return array of products not equal to id
-        
+        console.log("item deleted", id)
         this.setState({
             products: items
         })
