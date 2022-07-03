@@ -11,7 +11,7 @@ class App extends React.Component{
             price:999,
             title: "Mobile Phone",
             qty:1,
-            img:'',
+            img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSC-1rXmXSXpVqxYr_PEVviFj8PfXQn_t_PHz7j9ytJS8YOt5_ySs8IirTM4klFRauJtA&usqp=CAU',
             id :1,
             count_like:0,
             like:false,
@@ -21,7 +21,7 @@ class App extends React.Component{
             price:99,
             title: "Watch",
             qty:1,
-            img:'',
+            img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlGT4S4ghQVXpOWDQ7XgojB7GsLMbyhvNQYA&usqp=CAU',
             id:2,
             count_like:0,
             like:false,
@@ -31,7 +31,7 @@ class App extends React.Component{
             price:9999,
             title: "Laptop",
             qty:1,
-            img:'',
+            img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlABIEPOyTnCC1sSFzIg_6E4o_3fpJ9e-Erw&usqp=CAU',
             id:3,
             count_like:0,
             like:false,
@@ -109,8 +109,11 @@ getCartCount2 =()=>{
 getCartTotal =()=>{
   const {products} = this.state;
   let total = 0;
-  products.map((prod)=> {
+  products.map((prod) => {
+    if (prod.qty >0){
       total = total+(prod.qty * prod.price);
+    }
+    return '';
   })
   return total;
 }
