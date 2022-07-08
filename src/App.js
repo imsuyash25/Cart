@@ -59,7 +59,7 @@ componentDidMount (){
     const products = snapshot.docs.map((doc)=>{
       const data = doc.data();
       data['id'] = doc.id
-      return doc.data();
+      return data;
     })
 
     this.setState({
@@ -109,7 +109,7 @@ handleDecreaseQty = (product)=>{
 }
 handleDeletePrd = (id)=>{
     
-    const {products} = this.state;
+    //const {products} = this.state;
     //const items = products.filter((item)=> item.id !== id); // return array of products not equal to id
     /*console.log("item deleted", id)
     this.setState({
@@ -174,12 +174,13 @@ getCartTotal =()=>{
 addProduct =()=>{
   this.db.collection('products')
    .add({
-     img:'',
+     img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSC-1rXmXSXpVqxYr_PEVviFj8PfXQn_t_PHz7j9ytJS8YOt5_ySs8IirTM4klFRauJtA&usqp=CAU',
      price:900,
-     title: 'Waching machine',
+     title: 'Mobile',
      qty:2,
      like:false,
-    count_like:0
+     count_like:0,
+     src:'https://cdn-icons-png.flaticon.com/128/1077/1077035.png'
    })
 
    .then((doc)=>{
@@ -197,7 +198,7 @@ render(){
         <div className="App">
         <Navbar count ={this.getCartCount()} 
         count2={this.getCartCount2()}/>
-       {/* <button onClick={ this.addProduct}>Add Product</button>*/}
+       <button onClick={ this.addProduct}>Add Product</button>
         <Cart 
         products = {products}
         onIncreaseQty = {this.handleIncreaseQty}
